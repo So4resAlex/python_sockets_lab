@@ -26,8 +26,8 @@ def server():
     try:
         # Aceita a conexão quando um cliente se conecta
         connection, address = server_socket.accept()
-    except:
-        print("Execução encerrada")
+    except KeyboardInterrupt:
+        print("\nExecução encerrada")
         sys.exit(1)
 
     while True:
