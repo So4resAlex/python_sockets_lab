@@ -6,7 +6,8 @@ __version__ = "0.1.0"
 __author__ = "Alex Soares"
 __license__ = "Unlicense"
 
-import socket #importa a lib de sockets
+import socket
+import sys
 
 def server():
 
@@ -22,8 +23,12 @@ def server():
     # Aguarda conexões
     server_socket.listen()
 
-    # Aceita a conexão quando um cliente se conecta
-    connection, address = server_socket.accept()
+    try:
+        # Aceita a conexão quando um cliente se conecta
+        connection, address = server_socket.accept()
+    except:
+        print("Execução encerrada")
+        sys.exit(1)
 
     while True:
         # Recebe os dados do cliente
